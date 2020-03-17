@@ -1,0 +1,18 @@
+<div
+  class="card rounded-0 border-0 bg-dark text-white tile"
+  [style.backgroundImage]="backgroundImage"
+  *ngIf="!isVideo else videoTile"
+>
+  <h5 class="card-title">{{ fields.title }}</h5>
+</div>
+
+<ng-template #videoTile>
+  <div
+  class="card rounded-0 border-0 bg-dark text-white tile"
+>
+  <video [src]="this.fields.backgroundImage.fields.file.url" class="card-img" autoplay muted loop></video>
+  <div class="card-img-overlay">
+    <h5 class="card-title">{{ fields.title }}</h5>
+  </div>
+</div>
+</ng-template>
