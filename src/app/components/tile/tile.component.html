@@ -3,13 +3,13 @@
   [style.backgroundImage]="backgroundImage"
   *ngIf="!isVideo else videoTile"
 >
-  <h5 class="card-title">{{ fields.title }}</h5>
+  <a [routerLink]="fields.link" ><h5 class="card-title">{{ fields.title }}</h5></a>
 </div>
 
 <ng-template #videoTile>
   <div
-  class="card rounded-0 border-0 bg-dark text-white tile"
->
+    class="card rounded-0 border-0 bg-dark text-white tile"
+  >
   <video [src]="this.fields.backgroundImage.fields.file.url" class="card-img" autoplay muted loop></video>
   <div class="card-img-overlay">
     <h5 class="card-title">{{ fields.title }}</h5>

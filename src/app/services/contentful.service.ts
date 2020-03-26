@@ -21,13 +21,8 @@ export class ContentfulService {
 
   constructor() { }
 
-  getPage(query?: object): Promise<Entry<any>[]> {
-    return this.cdaClient.getEntries(Object.assign({
-      content_type: CONFIG.contentTypeIds.page,
-      'fields.sku[en]': 'UkoMQVjerwjBUOMeJhH76',
-      include: 2,
-    }, query))
-    // return this.cdaClient.getEntries()
-    .then(res => res.items);
+  getPage(query?: object): Promise<Entry<any>> {
+    return this.cdaClient.getEntry('4nCrKxMzEFNK1VDjA30YgE', { include: 2 })
+      .then(res => res);
   }
 }

@@ -20,15 +20,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.contentfulService.getPage()
-      .then((page: any[]) => {
+      .then((page: any) => {
         this.page = page;
+        const el = this.elementsRendererService.createCustomElement(page);
+        // (el as any).fields = element.fields;
 
-        this.page.forEach(element => {
-          const el = this.elementsRendererService.createCustomElement(element);
-          // (el as any).fields = element.fields;
-
-          this.elementsRendererService.appendChild(this.container, el);
-        });
+        this.elementsRendererService.appendChild(this.container, el);
 
         console.log(page);
       })
